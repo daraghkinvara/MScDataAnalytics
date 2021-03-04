@@ -1,4 +1,4 @@
 # MScDataAnalytics
 University projects
 
-The repository contains the code from a variety of MSc projects between fall 2020 and fall 2021.
+The repository contains the code from a variety of MSc projects from Sep 2020 - Aug 2021 taken at Strathclyde University, Scotland.
