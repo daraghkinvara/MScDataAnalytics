@@ -1,0 +1,73 @@
+/* EMPLOYEE (10) */
+insert into employee values (1, 'James Smith', '32/6 Hillside Street', '07476242505'); 
+insert into employee values (2, 'Drew McCarthy', '28 Greenbank Grove', '07476233505'); 
+insert into employee values (3, 'Connor Gallacher', '33 Devon Park', '07886242505'); 
+insert into employee values (4, 'Sinead Malley', '42 London Road', '07976242525'); 
+insert into employee values (5, 'Mary Boyle', '11 Easter Road', '07767642505'); 
+insert into employee values (6, 'Hannah Winfrey', '1/2 Buchanan Street', '01116242505'); 
+insert into employee values (7, 'Mark Dimon', '4 Moat Place', '07434242505'); 
+insert into employee values (8, 'Trudi Lenihan', '1/8 Appin Place', '07476299505'); 
+insert into employee values (9, 'Pat Simpson', '5 Heriot Row', '07476090005'); 
+insert into employee values (10, 'Ruben Reid', '21 Cappamore Lane', '07876242505'); 
+
+/* MANAGER (4) */
+insert into manager values (1, 1);
+insert into manager values (2, 2);
+insert into manager values (3, 3);
+insert into manager values (4, 4);
+
+/* MENTOR (1) */
+insert into mentor values (1, 2);
+
+/* SECRETARY (6) */
+insert into secretary values (1, 5, '09-Jun-18', 1);
+insert into secretary values (2, 6, '01-Jul-20', 1);
+insert into secretary values (3, 7, '21-Aug-15', 2);
+insert into secretary values (4, 8, '30-Jan-01', 3);
+insert into secretary values (5, 9, '15-Mar-16', 3);
+insert into secretary values (6, 10, '06-Apr-15', 4);
+
+/* SITE (4) */
+insert into site values(1,'Green', 1);
+insert into site values(2,'Blue',  2);
+insert into site values(3,'Red',   3);
+insert into site values(4,'Yellow',4);
+
+/* UNIT */ 
+/* Zone: Light Industry, Heavy Industry, Distribution Centre, Hazardous Storage */
+insert into unit values(1,1,500,'Light Industry',1);
+insert into unit values(2,1,100,'Light Industry',2);
+insert into unit values(3,1,50, 'Light Industry',3);
+insert into unit values(4,2,750,'Heavy Industry',3);
+insert into unit values(5,2,900,'Heavy Industry',4);
+insert into unit values(6,3,400,'Distribution Centre',4);
+insert into unit values(7,4,250,'Hazardous Storage',4);
+insert into unit values(8,5,300,'Light Industry',1);
+
+/* JOB (5) */
+insert into job values(1, 'Plumbing', '09-Feb-21');
+insert into job values(2, 'Lighting', '02-Feb-21');
+insert into job values(3, 'Roofing', '21-Dec-20');
+insert into job values(4, 'Plastering', '08-Oct-20');
+insert into job values(5, 'Locks', '01-Sep-20');
+
+/* JOBUNIT (10)*/
+insert into jobunit values(1, 1, 1);
+insert into jobunit values(2, 1, 1);
+insert into jobunit values(3, 2, 2);
+insert into jobunit values(4, 3, 2);
+insert into jobunit values(5, 4, 2);
+insert into jobunit values(6, 5, 3);
+insert into jobunit values(7, 5, 3);
+insert into jobunit values(8, 8, 4);
+insert into jobunit values(9, 6, 5);
+insert into jobunit values(10, 7, 5);
+
+/* EMERGENCY (3) */
+insert into emergency values(1, to_date('09 02 21 09 21', 'DD MM YY HH24 MI'), 1);
+insert into emergency values(2, to_date('02 02 21 21 05', 'DD MM YY HH24 MI'), 2);
+insert into emergency values(3, to_date('21 12 20 12 20', 'DD MM YY HH24 MI'), 3);
+
+/* ROUTINE (2) */
+insert into routine values(1, 4);
+insert into routine values(2, 5);
