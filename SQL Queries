@@ -1,0 +1,70 @@
+/* Query 1: What is the total floor area of the units controlled by manager no. 3 for each zone? */
+column "SITE NAME" format A10
+column "TOTAL FLOOR AREA" format 999
+
+SELECT U.Zone AS "Zone Type"
+       ,SUM(U.FLOOR_AREA) AS "TOTAL FLOOR AREA"
+FROM UNIT U
+   INNER JOIN SITE S ON U.SITE_ID = S.SITE_ID
+WHERE S.M_NO = 3
+GROUP BY U.ZONE;
+
+/* Query 2: What is the name of the most recently hired secretary */ 
+COLUMN "Employee No." FORMAT 99
+COLUMN NAME FORMAT A15
+
+SELECT E.E_NO AS "Employee No."
+       ,E.NAME
+       ,S.START_DATE
+FROM   EMPLOYEE E
+       INNER JOIN SECRETARY S ON S.E_NO = E.E_NO
+WHERE  S.START_DATE IN
+      (SELECT MAX(S.START_DATE) as "Date"
+       FROM SECRETARY S);
+/* Query 3: Find out which units have a floor area greater than the average floor area for each unit?*/  
+COLUMN "UNIT NO" FORMAT A10
+COLUMN ZONE FORMAT A15
+COLUMN "FLOOR AREA" FORMAT A10
+
+
+
+SELECT UNIT_NO AS "UNIT NO."
+       ,ZONE
+       ,FLOOR_AREA AS "FLOOR AREA"
+FROM UNIT U
+wHERE FLOOR_AREA > (
+     SELECT AVG(FLOOR_AREA)
+     FROM UNIT
+     WHERE UNIT_NO = U.UNIT_NO);
+       
+       
+/* Query 4 */
+COLUMN SECRETARY FORMAT A15
+COLUMN MANAGER FORMAT A18
+SET PAGESIZE 100
+
+SELECT  SEC.NAME AS SECRETARY
+       ,MAN.NAME AS MANAGER
+FROM SECRETARY S
+       INNER JOIN MANAGER M
+           ON M.M_NO = S.M_NO
+       INNER JOIN EMPLOYEE SEC
+           ON SEC.E_NO = S.E_NO
+       INNER JOIN EMPLOYEE MAN
+           ON MAN.E_NO = M.E_NO;
+ 
+/* Query 5 */
+COLUMN MANAGER_MENTOR FORMAT A20
+COLUMN MANAGER_MENTEE FORMAT A20
+         
+SELECT MAN.NAME AS MANAGER_MENTOR
+       ,MEN.NAME AS MANAGER_MENTEE
+FROM   MENTOR MTR
+       RIGHT JOIN MANAGER MGR
+           ON MGR.M_NO = MTR.MENTOR_NO
+       LEFT JOIN MANAGER MTE
+           ON MTE.M_NO = MTR.MENTEE_NO
+       LEFT JOIN EMPLOYEE MAN
+           ON MAN.E_NO = MGR.E_NO
+       LEFT JOIN EMPLOYEE MEN
+           ON MEN.E_NO = MTE.E_NO;  
